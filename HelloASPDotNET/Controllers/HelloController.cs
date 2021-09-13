@@ -6,32 +6,19 @@ using System.Threading.Tasks;
 
 namespace HelloASPDotNET.Controllers
 {
-    [Route("/helloworld")]
     public class HelloController : Controller
     {
         // GET: /<controller>/
         [HttpGet]
         public IActionResult Index()
         {
-            string html = "<form method = 'post' action = '/helloworld'>" 
-                + "<input type='text' name='name'/>" 
-                + "<select name='language'>"
-                + "<option value='English'>" + "English" + "</option>"
-                + "<option value='Spanish'>" + "Spanish" + "</option>"
-                + "<option value='French'>" + "French" + "</option>"
-                + "<option value='Swahili'>" + "Swahili" + "</option>"
-                + "<option value='German'>" + "German" + "</option>"
-                + "</select>"
-                + "<input type='submit' value='Greet Me!'/>"
-                +"</form>";
-            return Content(html, "text/html");
+            return View();
         }
 
-        [HttpGet("{name?}/{language?}")]
-        [HttpPost]
-        public IActionResult CreateMessage(string name = "World", string language = "English")
+        [HttpPost("/hello")]
+        public IActionResult Welcome(string name = "World", string language = "English")
         {
-            if(language == "English")
+            /*if(language == "English")
             {
                 return Content("<h1>Hello, " + name + "!</h1", "text/html");
             } else if (language == "Spanish")
@@ -50,7 +37,11 @@ namespace HelloASPDotNET.Controllers
             else
             {
                 return Content("<h1></h1>", "text/html");
-            }
+            }*/
+
+            ViewBag.person = name;
+            ViewBag.language = language;
+            return View();
         }
 
         /*GET: hello/welcome

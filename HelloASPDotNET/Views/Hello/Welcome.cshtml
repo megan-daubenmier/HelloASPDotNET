@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@if(ViewBag.person == null || ViewBag.person == "")
+            {
+                <h1>Hello, World!</h1>
+}
+else
+{
+    if (ViewBag.language == "English")
+    {
+        <h1>Hello, @ViewBag.person!</h1>
+    }
+    else if (ViewBag.language == "Spanish")
+    {
+        <h1>Hola, @ViewBag.person!</h1>
+    }
+    else if (ViewBag.language == "French")
+    {
+        <h1>Bonjour, @ViewBag.person!</h1>
+    }
+    else if (ViewBag.language == "Swahili")
+    {
+        <h1>Habari, @ViewBag.person!</h1>
+    }
+    else if (ViewBag.language == "German")
+    {
+        <h1>Hallo, @ViewBag.person!</h1>
+    }
+}
